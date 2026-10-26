@@ -30,7 +30,7 @@
 
         <!-- Promotions Carousel -->
         <section class="py-8 flex justify-center">
-            <div class="w-4/5"> <!-- Changed from w-4/5 to w-full -->
+            <div class="w-full md:w-4/5">
                 <div class="swiper rounded-2xl">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -62,21 +62,21 @@
                     </button>
                 </a>
             </div>
-            <div class="flex items-center justify-center space-x-8 px-6">
-                <div class="game-item">
-                    <img src="{{ asset('images/SonicUnleashed.webp') }}" width="258" height="362" loading="lazy" decoding="async" alt="Game 1" class="rounded-lg max-h-96 w-auto">
+            <div class="flex items-center gap-4 md:gap-8 overflow-x-auto md:overflow-visible md:justify-center px-6 pb-2">
+                <div class="game-item shrink-0">
+                    <img src="{{ asset('images/SonicUnleashed.webp') }}" width="258" height="362" loading="lazy" decoding="async" alt="Game 1" class="rounded-lg max-h-56 md:max-h-96 w-auto">
                 </div>
-                <div class="game-item">
-                    <img src="{{ asset('images/Zelda.webp') }}" width="258" height="208" loading="lazy" decoding="async" alt="Game 2" class="rounded-lg max-h-60 w-auto">
+                <div class="game-item shrink-0">
+                    <img src="{{ asset('images/Zelda.webp') }}" width="258" height="208" loading="lazy" decoding="async" alt="Game 2" class="rounded-lg max-h-40 md:max-h-60 w-auto">
                 </div>
-                <div class="game-item">
-                    <img src="{{ asset('images/StarFox.webp') }}" width="258" height="362" loading="lazy" decoding="async" alt="Game 3" class="rounded-lg max-h-96 w-auto">
+                <div class="game-item shrink-0">
+                    <img src="{{ asset('images/StarFox.webp') }}" width="258" height="362" loading="lazy" decoding="async" alt="Game 3" class="rounded-lg max-h-56 md:max-h-96 w-auto">
                 </div>
-                <div class="game-item">
-                    <img src="{{ asset('images/Link.webp') }}" width="285" height="387" loading="lazy" decoding="async" alt="Game 4" class="rounded-lg max-h-96 w-auto">
+                <div class="game-item shrink-0">
+                    <img src="{{ asset('images/Link.webp') }}" width="285" height="387" loading="lazy" decoding="async" alt="Game 4" class="rounded-lg max-h-56 md:max-h-96 w-auto">
                 </div>
-                <div class="game-item">
-                    <img src="{{ asset('images/Mario.webp') }}" width="800" height="1282" loading="lazy" decoding="async" alt="Game 5" class="rounded-lg max-h-96 w-auto">
+                <div class="game-item shrink-0">
+                    <img src="{{ asset('images/Mario.webp') }}" width="800" height="1282" loading="lazy" decoding="async" alt="Game 5" class="rounded-lg max-h-56 md:max-h-96 w-auto">
                 </div>
             </div>
         </section>
@@ -91,14 +91,14 @@
                     </button>
                 </a>
             </div>
-            <div class="flex items-center justify-center space-x-8 px-6">
-                <div class="game-item">
+            <div class="flex items-center gap-4 md:gap-8 overflow-x-auto md:overflow-visible md:justify-center px-6 pb-2">
+                <div class="game-item shrink-0">
                     <img src="{{ asset('images/Console1.webp') }}" width="358" height="227" loading="lazy" decoding="async" alt="Console 1" class="rounded-lg max-h-32 w-auto">
                 </div>
-                <div class="game-item">
+                <div class="game-item shrink-0">
                     <img src="{{ asset('images/Console2.webp') }}" width="358" height="150" loading="lazy" decoding="async" alt="Console 2" class="rounded-lg max-h-32 w-auto">
                 </div>
-                <div class="game-item">
+                <div class="game-item shrink-0">
                     <img src="{{ asset('images/Console3.webp') }}" width="648" height="385" loading="lazy" decoding="async" alt="Console 3" class="rounded-lg max-h-32 w-auto">
                 </div>
             </div>
@@ -114,14 +114,14 @@
                     </button>
                 </a>
             </div>
-            <div class="flex items-center justify-center space-x-8 px-6">
-                <div class="merch-item">
+            <div class="flex items-center gap-4 md:gap-8 overflow-x-auto md:overflow-visible md:justify-center px-6 pb-2">
+                <div class="merch-item shrink-0">
                     <img src="{{ asset('images/Merch1.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="Merch 1" class="rounded-lg max-h-70 w-auto">
                 </div>
-                <div class="merch-item">
+                <div class="merch-item shrink-0">
                     <img src="{{ asset('images/Merch2.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="Merch 2" class="rounded-lg max-h-70 w-auto">
                 </div>
-                <div class="merch-item">
+                <div class="merch-item shrink-0">
                     <img src="{{ asset('images/Merch3.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="Merch 3" class="rounded-lg max-h-70 w-auto">
                 </div>
             </div>
