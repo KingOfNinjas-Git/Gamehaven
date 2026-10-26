@@ -1,10 +1,10 @@
-<nav x-data="{ menu: false }" class="relative w-[calc(100%-1.5rem)] md:w-4/5 mx-auto mt-4 md:mt-8 mb-4 md:mb-8 bg-gradient-to-r from-[#7C3AED] via-[#181818] to-[#7C3AED] rounded-full flex justify-between items-center gap-2 py-2 md:py-3 px-4 md:px-8 shadow-2xl border-2 border-[#7C3AED]">
+<nav x-data="{ menu: false }" class="relative w-[calc(100%-1.5rem)] lg:w-4/5 mx-auto mt-4 lg:mt-8 mb-4 lg:mb-8 bg-gradient-to-r from-[#7C3AED] via-[#181818] to-[#7C3AED] rounded-full flex justify-between items-center gap-2 py-2 lg:py-3 px-4 lg:px-8 shadow-2xl border-2 border-[#7C3AED]">
     <!-- Logo or Brand -->
     <div class="flex items-center space-x-3">
-        <a href="/home" class="text-white text-base md:text-xl font-extrabold tracking-widest">GAMEHAVEN</a>
+        <a href="/home" class="text-white text-base lg:text-xl font-extrabold tracking-widest">GAMEHAVEN</a>
     </div>
     <!-- Navigation Links (wide screens) -->
-    <ul class="hidden md:flex space-x-8">
+    <ul class="hidden lg:flex space-x-8">
         <li>
             <a href="/home" class="text-white font-semibold px-4 py-2 rounded-full hover:bg-[#7C3AED] hover:text-white transition duration-200">HOME</a>
         </li>
@@ -17,7 +17,7 @@
     </ul>
     <div class="flex items-center gap-2">
         <!-- Menu button (phones) -->
-        <button type="button" @click="menu = !menu" class="md:hidden flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#7C3AED] text-white focus:outline-none"
+        <button type="button" @click="menu = !menu" class="lg:hidden flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#7C3AED] text-white focus:outline-none"
                 aria-label="Menu" :aria-expanded="menu">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path x-show="!menu" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -34,7 +34,7 @@
                         {{ Auth::check() ? strtoupper(substr(Auth::user()->first_name ?? Auth::user()->name, 0, 1)) : 'U' }}
                     </div>
                 @endif
-                <span class="text-white font-semibold hidden md:inline">PERFIL</span>
+                <span class="text-white font-semibold hidden lg:inline">PERFIL</span>
                 <svg class="w-4 h-4 text-white ml-1 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                 </svg>
@@ -58,7 +58,7 @@
     </div>
     <!-- Navigation Links (phones) -->
     <ul x-show="menu" x-cloak @click.away="menu = false"
-        class="md:hidden absolute left-0 right-0 top-full mt-2 z-50 rounded-3xl border-2 border-[#7C3AED] bg-[#181818] p-2 shadow-2xl">
+        class="lg:hidden absolute left-0 right-0 top-full mt-2 z-50 rounded-3xl border-2 border-[#7C3AED] bg-[#181818] p-2 shadow-2xl">
         <li><a href="/home" class="block rounded-full px-5 py-3 text-center font-semibold text-white hover:bg-[#7C3AED]">HOME</a></li>
         <li><a href="/ofertas" class="block rounded-full px-5 py-3 text-center font-semibold text-white hover:bg-[#7C3AED]">OFERTAS</a></li>
         <li><a href="/merchandise" class="block rounded-full px-5 py-3 text-center font-semibold text-white hover:bg-[#7C3AED]">MERCHANDISE</a></li>
