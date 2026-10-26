@@ -13,7 +13,7 @@
         <h2 class="text-2xl font-semibold px-6 mb-6">Merch da loja</h2>
         <div class="flex flex-wrap justify-center items-end space-x-12 px-6">
             <div class="flex flex-col items-center">
-                <img src="{{ asset('images/MerchLoja_1.png') }}" alt="T-shirt (frente e verso)" class="max-h-70 mb-4 w-62 object-contain">
+                <img src="{{ asset('images/MerchLoja_1.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="T-shirt (frente e verso)" class="max-h-70 mb-4 w-62 object-contain w-auto">
                 <div class="bg-[#7C3AED] text-white px-4 py-1 rounded-t-lg w-48 text-center font-bold text-lg">-20%</div>
                 <div class="bg-gray-800 px-4 py-2 rounded-b-lg w-48 text-center">
                     <span class="line-through text-gray-400 text-base">25,00€</span><br>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="flex flex-col items-center">
-                <img src="{{ asset('images/MerchLoja_2.png') }}" alt="Shorts" class="max-h-70 mb-4 w-62 object-contain">
+                <img src="{{ asset('images/MerchLoja_2.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="Shorts" class="max-h-70 mb-4 w-62 object-contain w-auto">
                 <div class="bg-[#7C3AED] text-white px-4 py-1 rounded-t-lg w-48 text-center font-bold text-lg">-40%</div>
                 <div class="bg-gray-800 px-4 py-2 rounded-b-lg w-48 text-center">
                     <span class="line-through text-gray-400 text-base">25,00€</span><br>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="flex flex-col items-center">
-                <img src="{{ asset('images/MerchLoja_3.png') }}" alt="Hoodie" class="max-h-70 mb-4 w-62 object-contain">
+                <img src="{{ asset('images/MerchLoja_3.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="Hoodie" class="max-h-70 mb-4 w-62 object-contain w-auto">
                 <div class="bg-[#7C3AED] text-white px-4 py-1 rounded-t-lg w-48 text-center font-bold text-lg">-25%</div>
                 <div class="bg-gray-800 px-4 py-2 rounded-b-lg w-48 text-center">
                     <span class="line-through text-gray-400 text-base">80,00€</span><br>
@@ -44,17 +44,17 @@
         <h2 class="text-2xl font-semibold px-6 mb-6">Merch De Dias Especiais</h2>
         <div class="flex flex-wrap justify-center items-end space-x-12 px-6">
             <div class="flex flex-col items-center">
-                <img src="{{ asset('images/MerchLojaSpecial1.png') }}" alt="Special 1" class="max-h-70 mb-4 w-62 object-contain">
+                <img src="{{ asset('images/MerchLojaSpecial1.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="Special 1" class="max-h-70 mb-4 w-62 object-contain w-auto">
                 <div class="bg-[#7C3AED] text-white px-4 py-1 rounded-t-lg w-48 text-center font-bold text-lg">OFF</div>
                 <div class="bg-gray-800 px-4 py-2 rounded-b-lg w-48 text-center text-xl">Indisponível</div>
             </div>
             <div class="flex flex-col items-center">
-                <img src="{{ asset('images/MerchLojaSpecial2.png') }}" alt="Special 2" class="max-h-70 mb-4 w-62 object-contain">
+                <img src="{{ asset('images/MerchLojaSpecial2.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="Special 2" class="max-h-70 mb-4 w-62 object-contain w-auto">
                 <div class="bg-[#7C3AED] text-white px-4 py-1 rounded-t-lg w-48 text-center font-bold text-lg">OFF</div>
                 <div class="bg-gray-800 px-4 py-2 rounded-b-lg w-48 text-center text-xl">Indisponível</div>
             </div>
             <div class="flex flex-col items-center">
-                <img src="{{ asset('images/MerchLojaSpecial3.png') }}" alt="Special 3" class="max-h-70 mb-4 w-62 object-contain">
+                <img src="{{ asset('images/MerchLojaSpecial3.webp') }}" width="300" height="300" loading="lazy" decoding="async" alt="Special 3" class="max-h-70 mb-4 w-62 object-contain w-auto">
                 <div class="bg-[#7C3AED] text-white px-4 py-1 rounded-t-lg w-48 text-center font-bold text-lg">OFF</div>
                 <div class="bg-gray-800 px-4 py-2 rounded-b-lg w-48 text-center text-xl">Indisponível</div>
             </div>

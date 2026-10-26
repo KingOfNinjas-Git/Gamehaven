@@ -6,17 +6,15 @@
     @include('partials.share-head')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="preload" as="style" href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+    <noscript><link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" rel="stylesheet"/></noscript>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-[#1A0841] min-h-screen flex flex-col justify-between">
     @include('partials.demo-bar')
     <div class="flex flex-col items-center mt-8">
         <!-- Logo -->
-        <img src="{{ asset('images/gamehavenlogo.png') }}" alt="GameHaven Logo" class="h-44 mb-4">
+        <img src="{{ asset('images/gamehavenlogo.webp') }}" width="400" height="400" fetchpriority="high" alt="GameHaven Logo" class="h-44 w-auto mb-4">
         <!-- Language Switch -->
         <div class="text-white text-xl mb-8 tracking-widest">PT|ENG</div>
 

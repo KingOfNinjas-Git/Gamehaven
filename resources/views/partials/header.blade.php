@@ -1,6 +1,6 @@
 <header class="flex items-center justify-between py-4">
     <div class="w-1/4">
-        <img src="{{ asset('images/gamehavenlogo.png') }}" alt="GameHaven Logo" class="h-[11rem]">
+        <img src="{{ asset('images/gamehavenlogo.webp') }}" width="400" height="400" fetchpriority="high" alt="GameHaven Logo" class="h-[11rem] w-auto">
     </div>
     <div class="w-1/2 relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -11,7 +11,7 @@
         <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>
     </div>
     <div class="w-1/4 flex justify-end">
-        <a href="{{ route('cart.index') }}" class="group">
+        <a href="{{ route('cart.index') }}" class="group" aria-label="Carrinho">
             <!-- Shopping cart icon using Blade Icons -->
             <x-akar-cart class="w-8 h-8 text-white hover:text-[#7C3AED] transition" />
         </a>

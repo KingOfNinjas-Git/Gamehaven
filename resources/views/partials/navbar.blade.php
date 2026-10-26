@@ -46,6 +46,4 @@
             </form>
         </div>
     </div>
-    <!-- Alpine.js for dropdown -->
-    <script src="//unpkg.com/alpinejs" defer></script>
 </nav>

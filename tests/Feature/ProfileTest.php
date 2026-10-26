@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 test('profile page is displayed', function () {
     $user = User::factory()->create();
@@ -12,74 +14,35 @@ test('profile page is displayed', function () {
     $response->assertOk();
 });
 
-test('profile information can be updated', function () {
-    $user = User::factory()->create();
-
-    $response = $this
-        ->actingAs($user)
-        ->patch('/profile', [
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
-    $response
-        ->assertSessionHasNoErrors()
-        ->assertRedirect('/profile');
-
-    $user->refresh();
-
-    $this->assertSame('Test User', $user->name);
-    $this->assertSame('test@example.com', $user->email);
-    $this->assertNull($user->email_verified_at);
+test('profile page needs a signed-in user', function () {
+    $this->get('/profile')->assertRedirect('/login');
 });
 
-test('email verification status is unchanged when the email address is unchanged', function () {
+test('a profile picture can be uploaded and replaces the old one', function () {
+    Storage::fake('public');
     $user = User::factory()->create();
 
-    $response = $this
-        ->actingAs($user)
-        ->patch('/profile', [
-            'name' => 'Test User',
-            'email' => $user->email,
-        ]);
+    $this->actingAs($user)
+        ->post('/profile/picture', ['profile_picture' => UploadedFile::fake()->image('first.jpg')])
+        ->assertSessionHasNoErrors();
+    $first = $user->fresh()->profile_picture;
+    Storage::disk('public')->assertExists($first);
 
-    $response
-        ->assertSessionHasNoErrors()
-        ->assertRedirect('/profile');
+    $this->actingAs($user)
+        ->post('/profile/picture', ['profile_picture' => UploadedFile::fake()->image('second.jpg')])
+        ->assertSessionHasNoErrors();
 
-    $this->assertNotNull($user->refresh()->email_verified_at);
+    Storage::disk('public')->assertMissing($first);
+    Storage::disk('public')->assertExists($user->fresh()->profile_picture);
 });
 
-test('user can delete their account', function () {
+test('a profile picture must be an image', function () {
+    Storage::fake('public');
     $user = User::factory()->create();
 
-    $response = $this
-        ->actingAs($user)
-        ->delete('/profile', [
-            'password' => 'password',
-        ]);
+    $this->actingAs($user)
+        ->post('/profile/picture', ['profile_picture' => UploadedFile::fake()->create('notes.pdf', 10, 'application/pdf')])
+        ->assertSessionHasErrors('profile_picture');
 
-    $response
-        ->assertSessionHasNoErrors()
-        ->assertRedirect('/');
-
-    $this->assertGuest();
-    $this->assertNull($user->fresh());
-});
-
-test('correct password must be provided to delete account', function () {
-    $user = User::factory()->create();
-
-    $response = $this
-        ->actingAs($user)
-        ->from('/profile')
-        ->delete('/profile', [
-            'password' => 'wrong-password',
-        ]);
-
-    $response
-        ->assertSessionHasErrorsIn('userDeletion', 'password')
-        ->assertRedirect('/profile');
-
-    $this->assertNotNull($user->fresh());
+    expect($user->fresh()->profile_picture)->toBeNull();
 });

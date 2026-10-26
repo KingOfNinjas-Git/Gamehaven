@@ -15,12 +15,12 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         @foreach($games as $game)
             <div class="bg-[#181818] rounded-xl shadow-lg overflow-hidden flex flex-col relative">
-                <img src="{{ asset('storage/' . $game->cover_image) }}" alt="{{ $game->title }}" class="w-full h-64 object-fit">
+                <img src="{{ asset('storage/' . $game->cover_image) }}" alt="{{ $game->title }}" width="800" height="450" decoding="async" @if($loop->index >= 3) loading="lazy" @endif class="w-full h-64 object-cover">
                 <div class="p-4 flex-1 flex flex-col justify-between">
                     <h2 class="text-xl font-bold text-white mb-2">{{ $game->title }}</h2>
                     <div class="flex items-end justify-between mt-auto">
                         @if($game->discount > 0)
-                            <span class="bg-[#7C3AED] text-white font-bold px-3 py-1 rounded-lg text-lg">-{{ rtrim(rtrim($game->discount, '0'), '.') }}%</span>
+                            <span class="bg-[#7C3AED] text-white font-bold px-3 py-1 rounded-lg text-lg">-{{ rtrim(rtrim(number_format($game->discount, 2, '.', ''), '0'), '.') }}%</span>
                             <div class="flex flex-col items-end">
                                 <span class="line-through text-gray-400 text-sm">{{ number_format($game->old_price, 2) }}€</span>
                                 <span class="text-[#7C3AED] text-2xl font-bold">{{ number_format($game->price, 2) }}€</span>
