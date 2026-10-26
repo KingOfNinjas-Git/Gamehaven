@@ -6,8 +6,13 @@ use App\Support\DemoMode;
 use Database\Seeders\GamesSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 
 uses(RefreshDatabase::class);
+
+// The demo clean-up deletes files from the "public" disk, so every test here works on a fake one:
+// it must never touch the real covers and profile pictures in storage/app/public.
+beforeEach(fn () => Storage::fake('public'));
 
 test('nothing changes when demo mode is off', function () {
     $this->get('/home')->assertOk()->assertDontSee('Demonstração de portefólio');
