@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GamesSeeder::class);
 
         // A test account for local development only (it needs the dev-only faker package).
-        if (app()->environment('local') && class_exists(\Faker\Factory::class)) {
+        if (app()->environment('local') && class_exists(Factory::class)) {
             User::factory()->create([
                 'name' => 'Test User',
                 'email' => 'test@example.com',

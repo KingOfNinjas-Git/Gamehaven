@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterEmailController extends Controller
 {
@@ -36,7 +36,7 @@ class RegisterEmailController extends Controller
             'surname' => $request->surname,
             'phone' => $request->phone,
             'birthdate' => Carbon::createFromFormat('d/m/Y', $request->birthdate)->format('Y-m-d'),
-            'name' => $request->first_name . ' ' . $request->surname,
+            'name' => $request->first_name.' '.$request->surname,
         ]);
 
         Auth::login($user);
