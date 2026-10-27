@@ -20,7 +20,7 @@
                     <h2 class="text-xl font-bold text-white mb-2">{{ $game->title }}</h2>
                     <div class="flex items-end justify-between mt-auto">
                         @if($game->discount > 0)
-                            <span class="bg-[#7C3AED] text-white font-bold px-3 py-1 rounded-lg text-lg">-{{ rtrim(rtrim(number_format($game->discount, 2, '.', ''), '0'), '.') }}%</span>
+                            <span class="bg-[#7C3AED] text-white font-bold px-3 py-1 rounded-lg text-lg">-{{ $game->discountLabel() }}%</span>
                             <div class="flex flex-col items-end">
                                 <span class="line-through text-gray-400 text-sm">{{ number_format($game->old_price, 2) }}€</span>
                                 <span class="text-[#7C3AED] text-2xl font-bold">{{ number_format($game->price, 2) }}€</span>

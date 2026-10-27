@@ -1,63 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>GameHaven Login</title>
-    @include('partials.share-head')
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link rel="preload" as="style" href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
-    <noscript><link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600&display=swap" rel="stylesheet"/></noscript>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="bg-[#1A0841] min-h-screen flex flex-col justify-between">
-    @include('partials.demo-bar')
-    <div class="flex flex-col items-center mt-8">
-        <!-- Logo -->
-        <img src="{{ asset('images/gamehavenlogo.webp') }}" width="400" height="400" fetchpriority="high" alt="GameHaven Logo" class="h-44 w-auto mb-4">
-        <!-- Language Switch -->
-        <div class="text-white text-xl mb-8 tracking-widest">PT|ENG</div>
+@extends('layouts.auth')
 
-        <!-- Login Card -->
-        <div class="bg-white rounded-2xl shadow-lg w-[90vw] max-w-md flex flex-col items-center pb-8">
-            <div class="w-full flex justify-center -mt-8">
-                <div class="bg-white rounded-t-2xl px-8 py-2 text-3xl font-bold text-[#1A0841] drop-shadow-lg">Log-In</div>
-            </div>
-            <form method="POST" action="{{ route('login') }}" class="w-full px-8 flex flex-col items-center">
-                @csrf
+@section('title', 'Log-In')
+@section('heading', 'Log-In')
 
-                <!-- Email Address -->
-                <div class="w-full mb-4">
-                    <label for="email" class="block text-[#1A0841] font-bold mb-1">E-MAIL</label>
-                    <input id="email" type="email" name="email" required autofocus autocomplete="username"
-                        class="w-full rounded-md border border-gray-400 bg-[#E6E6E6] px-4 py-2 shadow text-[#1A0841] font-semibold focus:outline-none focus:ring-2 focus:ring-[#7C3AED]" />
-                </div>
+@section('card')
+    <form method="POST" action="{{ route('login') }}" class="mt-6 flex w-full flex-col items-center px-8">
+        @csrf
+        <x-auth-field label="E-MAIL" name="email" type="email" autocomplete="username" autofocus />
+        <x-auth-field label="PALAVRA-PASSE" name="password" type="password" autocomplete="current-password" />
 
-                <!-- Password -->
-                <div class="w-full mb-4">
-                    <label for="password" class="block text-[#1A0841] font-bold mb-1">PALAVRA-PASSE</label>
-                    <input id="password" type="password" name="password" required autocomplete="current-password"
-                        class="w-full rounded-md border border-gray-400 bg-[#E6E6E6] px-4 py-2 shadow text-[#1A0841] font-semibold focus:outline-none focus:ring-2 focus:ring-[#7C3AED]" />
-                </div>
+        <button type="submit" class="mb-2 mt-2 w-40 rounded-full bg-[#E6E6E6] py-2 font-bold text-[#1A0841] shadow transition hover:bg-[#d1d1d1]">ENTRAR</button>
+    </form>
 
-                <!-- Login Button -->
-                <button type="submit" class="w-40 mt-2 mb-2 bg-[#E6E6E6] text-[#1A0841] font-bold rounded-full py-2 shadow hover:bg-[#d1d1d1] transition">ENTRAR</button>
-            </form>
+    <p class="mb-2 mt-2 text-center text-sm font-semibold text-[#1A0841]">Ainda não tem conta? Crie uma!</p>
+    <a href="{{ route('register') }}" class="mb-2 block w-40 rounded-full bg-[#E6E6E6] py-2 text-center font-bold text-[#1A0841] shadow transition hover:bg-[#d1d1d1]">Criar Conta</a>
+    <a href="{{ url('/') }}" class="mt-2 block w-60 rounded-full bg-[#E6E6E6] py-2 text-center font-bold text-[#1A0841] shadow transition hover:bg-[#d1d1d1]">ENTRAR COMO CONVIDADO</a>
+@endsection
 
-            <!-- Register Link -->
-            <div class="text-center mt-2 mb-2 text-[#1A0841] font-semibold text-sm">
-                Ainda não tem conta? Crie uma!
-            </div>
-            <a href="{{ route('register') }}" class="w-40 bg-[#E6E6E6] text-[#1A0841] font-bold rounded-full py-2 shadow hover:bg-[#d1d1d1] transition block text-center mb-2">Criar Conta</a>
-
-            <!-- Guest Button -->
-            <a href="{{ url('/') }}" class="w-60 bg-[#E6E6E6] text-[#1A0841] font-bold rounded-full py-2 shadow hover:bg-[#d1d1d1] transition block text-center mt-2">ENTRAR COMO CONVIDADO</a>
-        </div>
-
-        <!-- Info Box -->
-        <div class="bg-white rounded-2xl shadow-lg mt-8 px-8 py-6 text-center text-[#1A0841] font-bold text-lg max-w-2xl">
-            Apenas introduza o seu email e a sua palavra passe e de seguida escolha a opção “Entrar”.
-        </div>
-    </div>
-</body>
-</html>
+@section('below')
+    <p class="mt-8 max-w-2xl rounded-2xl bg-white px-8 py-6 text-center text-lg font-bold text-[#1A0841] shadow-lg">
+        Apenas introduza o seu email e a sua palavra passe e de seguida escolha a opção “Entrar”.
+    </p>
+@endsection

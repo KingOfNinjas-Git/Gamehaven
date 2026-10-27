@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Game;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
+/** The cart lives in the session: a game is in it once, with the title and price it had when it was added. */
 class CartController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $cart = session('cart', []);
-        return view('cart', compact('cart'));
+        return view('cart', ['cart' => session('cart', [])]);
     }
 
-    public function add(Request $request, \App\Models\Game $game)
+    public function add(Game $game): RedirectResponse
     {
-        $cart = session()->get('cart', []);
-        $cart[$game->id] = [
+        session()->put("cart.{$game->id}", [
             'id' => $game->id,
             'title' => $game->title,
             'price' => $game->price,
             'cover_image' => $game->cover_image,
-        ];
-        session(['cart' => $cart]);
-        return redirect()->back()->with('success', 'Jogo adicionado ao carrinho!');
+        ]);
+
+        return back()->with('success', 'Jogo adicionado ao carrinho!');
     }
 }

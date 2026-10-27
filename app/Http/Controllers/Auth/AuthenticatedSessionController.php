@@ -35,8 +35,9 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended('/home');
         }
 
-        return back()->withErrors([
-            'email' => __('auth.failed'),
+        // Keep the e-mail that was typed (never the password) and say what is wrong, in the page's language
+        return back()->onlyInput('email')->withErrors([
+            'email' => 'Estes dados não correspondem a nenhuma conta. Verifique o e-mail e a palavra-passe.',
         ]);
     }
 
