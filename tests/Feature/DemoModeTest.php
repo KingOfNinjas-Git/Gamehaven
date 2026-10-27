@@ -62,3 +62,17 @@ test('the one-click admin link works only in demo mode', function () {
     $this->assertAuthenticated();
     expect(auth()->user()->is_admin)->toBeTruthy();
 });
+
+it('asks search engines not to index the demo, but not a real shop', function () {
+    config(['demo.enabled' => false]);
+    $this->get('/')->assertHeaderMissing('X-Robots-Tag');
+
+    config(['demo.enabled' => true]);
+    $this->get('/')->assertOk()->assertHeader('X-Robots-Tag', 'noindex');
+});
+
+it('has a page title and a main heading that say what the site is', function () {
+    $this->get('/')
+        ->assertSee('<title>GameHaven | Jogos, consolas e merchandising</title>', false)
+        ->assertSee('<h1 class="sr-only">', false);
+});

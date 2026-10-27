@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'GameHaven')
+@section('title', 'GameHaven | Jogos, consolas e merchandising')
 
 {{-- Swiper (the promotions carousel) is only needed on this page --}}
 @push('head')
@@ -51,6 +51,8 @@
 @endphp
 
 @section('content')
+    <h1 class="sr-only">GameHaven: jogos, consolas e merchandising</h1>
+
     <!-- Promotions carousel -->
     <section class="flex justify-center py-8">
         <div class="w-full md:w-4/5">
@@ -78,7 +80,7 @@
                 <h2 class="text-2xl font-bold">{{ $row['title'] }}</h2>
                 <a href="{{ $row['link'] }}" class="shrink-0 rounded-full bg-white px-4 py-2 font-bold text-purple-800">Ver mais</a>
             </div>
-            <div class="flex items-center gap-4 overflow-x-auto px-6 pb-2 md:justify-center md:gap-8 md:overflow-visible">
+            <div tabindex="0" role="region" aria-label="{{ $row['title'] }}" class="flex items-center gap-4 overflow-x-auto px-6 pb-2 md:justify-center md:gap-8 md:overflow-visible">
                 @foreach ($row['items'] as [$file, $alt, $w, $h, $size])
                     <img src="{{ asset("images/{$file}.webp") }}" width="{{ $w }}" height="{{ $h }}" alt="{{ $alt }}"
                          loading="lazy" decoding="async" class="{{ $size }} w-auto max-w-none shrink-0 rounded-lg md:min-w-0 md:max-w-full md:shrink">

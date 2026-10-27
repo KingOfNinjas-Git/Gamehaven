@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'GameHaven')
+@section('title', 'Merchandising | GameHaven')
 
 @php
     // [picture (public/images, without .webp), description, discount label, old price, price] - no prices means "Indisponível"
